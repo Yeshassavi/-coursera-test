@@ -1,0 +1,18 @@
+body{
+ color: white; font-size: 19px; font-family: 'Itim', cursive; 
+}
+#header-nav {
+	background-color: #dc3545;
+font-size: 19px; font-family: 'Itim', cursive; border: 0.30px;
+}
+ h1{ color: white; font-size: 50px; }
+ h2#menu-head{ color: black; font-size: 40px; margin-bottom: 30px; margin-top: 20px;}
+ h3{ padding-top: 20px; padding-bottom: 10px; }
+#main-content{ background-color: black; }
+@media(max-width: 570px) {
+ .container { max-width: 360px; } 
+}
+	#navbarDropdown{ text-align: center; color: #ffc107; } 
+	#nav-list a:hover{ color: #fff   }
+	button.navbar-toggler{border: 5px solid; background-color: #ffc107 }
+	button.navbar-toggler:hover{ color: #fff; background-color: #6c757d }
