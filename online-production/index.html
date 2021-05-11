@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+ <meta http-equiv="X-UA-compatible" content="IE=edge">
+ <meta name="viewport" content="width= device-width , initial-scale=1">
+	<title>
+		Online media production
+	</title>
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet"> <link href="https://fonts.googleapis.com/css2?family=Alegreya:ital@1&display=swap" rel="stylesheet"> <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+<style type="text/css">
+	/* The Overlay (background) */
+.overlay {
+  /* Height & width depends on how you want to reveal the overlay (see JS below) */   
+  height: 100%;
+  width: 0;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  background-color: rgb(0,0,0); /* Black fallback color */
+  background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+/* Position the content inside the overlay */
+.overlay-content {
+  position: relative;
+  top: 25%; /* 25% from the top */
+  width: 100%; /* 100% width */
+  text-align: center; /* Centered text/links */
+  margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+}
+
+/* The navigation links inside the overlay */
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: #818181;
+  display: block; /* Display block instead of inline */
+  transition: 0.3s; /* Transition effects on hover (color) */
+}
+
+/* When you mouse over the navigation links, change their color */
+.overlay a:hover, .overlay a:focus {
+  color: #f1f1f1;
+}
+
+/* Position the close button (top right corner) */
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+@media screen and (max-height: 450px) {
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+* {
+  box-sizing: border-box;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.container {
+  position: relative;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 30%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+@media(max-width: 768px){
+	.prev,
+.next{position: absolute;
+  top: 30%;}
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Container for image text */
+.caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 2px 16px;
+  color: white;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Six columns side by side */
+.column {
+  float: left;
+  width: 16.66%;
+}
+
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 0.6;
+}
+
+.active,
+.demo:hover {
+  opacity: 1;
+}
+ .multicolortext {
+        background-image: linear-gradient(to left, violet, indigo, green, blue, yellow, orange, red);
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        background-clip: text;
+        color: transparent;}
+
+#menu-icon{ float: right; color: #9c12a1}
+h1{
+	color: #9c12a1; font-size: 45px; background-image: url(img-11.jpeg);opacity: 0.8;text-transform: uppercase;
+}
+body{
+	background-color: black; font-family: 'Fredoka One', cursive;
+}
+h2{
+	color: white; margin-top: 10px; margin-bottom: 10px; font-size: 3rem;
+}
+p#caption{
+	font-family: 'Alegreya', serif; font-size: 30px;
+}
+footer{
+	background-color: white;
+}
+#logo-img{
+	background: url("logo111.png") no-repeat;
+	width: 100px; height: 150px; margin: 10px 15px 10px 0;
+}
+</style>
+</head>
+<body>
+	<header>
+	<nav id="header-nav" class="navbar navbar-dark bg-light static-top">
+    	<div  class="container">
+    		<div class="navbar-header">
+    			<a href="#" >
+    				<div id="logo-img" alt="logo-image">
+    					
+    				</div>
+    			</a>
+    			
+    		</div>
+        <a class="navbar-brand" href="module3assignment.html"><h1 class="multicolortext text-center">Otaku Feed</h1></a>
+<!-- Use any element to open/show the overlay navigation menu -->
+<span id="menu-icon"   style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+
+	<!-- The overlay -->
+<div id="myNav" class="overlay">
+
+  <!-- Button to close the overlay navigation -->
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+  <!-- Overlay content -->
+  <div class="overlay-content">
+    <a href="#">About</a>
+    <a href="#">Blogs</a>
+    <a href="#">Anime</a>
+    <a href="#">Manga</a>
+  </div>
+</div>
+</div>
+</nav>
+</header>
+<h2 class="text-center">
+	What's new this week?
+
+</h2>
+<!-- Container for the image gallery -->
+<div class="container">
+
+  <!-- Full-width images with number text -->
+  <div class="mySlides">
+    <div class="numbertext">1 / 6</div>
+      <img src="img-1.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">2 / 6</div>
+      <img src="img-7.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">3 / 6</div>
+      <img src="img-3.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">4 / 6</div>
+      <img src="img-4.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">5 / 6</div>
+      <img src="img-10.jpg" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">6 / 6</div>
+      <img src="img-8.jpg"style="width:100%">
+  </div>
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+  <!-- Image text -->
+  <div class="caption-container">
+    <p id="caption"></p>
+  </div>
+
+  <!-- Thumbnail images -->
+  <div class="row">
+    <div class="column">
+      <img class="demo cursor" src="img-1.jpg" style="width:100%" onclick="currentSlide(1)" alt="Why is JJK's Goju Satoru one of the most over-powered characters of 2021?">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="img-7.jpg" style="width:100%" onclick="currentSlide(2)" alt="The love-hate brotherhood of Naruto & Sasuke.">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="img-3.jpg" style="width:100%" onclick="currentSlide(3)" alt=" I completed Attack on titan S4 and why should you too: A thread. ">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="img-4.jpg" style="width:100%" onclick="currentSlide(4)" alt="Jujtsu Kaisen: The blockbuster anime of 2021.">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="img-10.jpg" style="width:100%" onclick="currentSlide(5)" alt="Studio Ghibli - A thread of Cute and warm stories.">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="img-8.jpg" style="width:100%" onclick="currentSlide(6)" alt="Parasyte - I have so many questions!">
+    </div>
+  </div>
+  
+</div>
+
+<div style="color: white; font-family: 'Open Sans', sans-serif;text-align: center;">
+	<h3 style="margin-top: 50px;font-weight: bolder;font-size:4rem;text-decoration: underline;">
+		From the Editor's Heart
+	</h3>
+<p>
+	<div style="font-size:3rem;">Dear otakus</div>
+	<div style="font-size: 2rem">
+		Welcome to Otaku Feed.
+	</div>
+	<div style="font-size: 1.5rem; padding-top: 20px; margin-bottom: 20px">
+		This website is from a dedicated and passionate anime-watcher to other dedicated and passionate anime- watchers.
+	</div>
+<div style="padding: 50px; font-style: italic; background-color: #222 "> 
+In Japan, anime is the term used to refer to all animations. And for the rest of the world, anime is the umbrella term for animation from Japan. It has a wide pool of fans, ranging from kids to adults. Anime is more than just a childhood thing. It influences you in so many ways that it becomes something you don’t just “grow out of”. It’s quite unique from the everyday cartoon when it comes to details, styles, and storytelling.
+</div>
+</p>
+</div>
+<footer style="margin-top: 20px" class="panel-footer">
+    <div class="container">
+      <div class="row">
+        <section id="hours" class="col-sm-12" style="text-align: center;margin-right: -20px;font-family: 'Source Sans Pro', sans-serif;">
+          <span style="font-size: 1.7rem;font-weight: bold;">About</span><br>
+          Yeshassavi pandita<br>
+          181201004<br>
+          BA(J&MC)<br>
+          Section - 'B'
+          <hr class="d-block d-sm-none">
+        </section>
+        
+      </div>
+      <div class="text-center" style="padding-top: 20px">&copy; Copyright Otaku Feed 2021</div>
+    </div>
+  </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+	function openNav() {
+  document.getElementById("myNav").style.width = "100%";
+}
+
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%";
+}
+var slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+</script>
+</body>
+</html>
